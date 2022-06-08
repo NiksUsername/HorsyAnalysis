@@ -15,17 +15,18 @@ import chess.Position;
 public class ChessBoard extends View {
     private Position pos;
     private int selectedSquare;
-    private float cursorX, cursorY;
+    private final float cursorX;
+    private final float cursorY;
     private boolean cursorVisible;
     private int x0, y0, sqSize;
     private boolean flipped;
 
-    private Paint darkPaint;
-    private Paint brightPaint;
-    private Paint redOutline;
-    private Paint greenOutline;
-    private Paint whitePiecePaint;
-    private Paint blackPiecePaint;
+    private final Paint darkPaint;
+    private final Paint brightPaint;
+    private final Paint redOutline;
+    private final Paint greenOutline;
+    private final Paint whitePiecePaint;
+    private final Paint blackPiecePaint;
 
     public ChessBoard(Context context, AttributeSet attrs) {
         super(context, attrs);

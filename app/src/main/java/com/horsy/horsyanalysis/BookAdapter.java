@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder>{
     private OnBookMoveClickListener onBookMoveClickListener;
 
-    private ArrayList<BookMove> bookMoves;
+    private final ArrayList<BookMove> bookMoves;
 
     interface OnBookMoveClickListener {
         void onBookMoveClick(int position);
@@ -58,12 +58,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             move = itemView.findViewById(R.id.move);
             moveCount = itemView.findViewById(R.id.moves_count);
             moveResults = itemView.findViewById(R.id.results);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onBookMoveClickListener != null) {
-                        onBookMoveClickListener.onBookMoveClick(getAdapterPosition());
-                    }
+            itemView.setOnClickListener(v -> {
+                if (onBookMoveClickListener != null) {
+                    onBookMoveClickListener.onBookMoveClick(getAdapterPosition());
                 }
             });
         }

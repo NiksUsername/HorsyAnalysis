@@ -74,9 +74,6 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
         ctrl.setTimeLimit();
     }
 
-    /**
-     * Called when the activity is first created.
-     */
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,15 +89,12 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
         thinking= findViewById(R.id.thinking);
         chessboard = findViewById(R.id.chessBoard);
         score = findViewById(R.id.score);
-        //binding = ((MainBinding) DataBindingUtil.setContentView(this, R.layout.main)).content;
         status.setFocusable(false);
         moveListFragment = new MoveListFragment();
         bookMovesFragment = new BookMovesFragment();
 
         findViewById(R.id.radioButtonBook).setOnClickListener(radioButtonClickListener);
         findViewById(R.id.radioButtonMoves).setOnClickListener(radioButtonClickListener);
-        //binding.moveListScroll.setFocusable(false);
-        //binding.moveList.setFocusable(false);
         thinking.setFocusable(false);
         ctrl = new ChessController(this);
         ctrl.setThreadStackSize(0);

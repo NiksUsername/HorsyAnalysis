@@ -44,7 +44,7 @@ public class ChessController {
     private Player humanPlayer;
     private ComputerPlayer computerPlayer;
     Game game;
-    private GUIInterface gui;
+    private final GUIInterface gui;
     private boolean humanIsWhite;
     private Thread computerThread;
     private boolean playWithComputer;
@@ -91,7 +91,7 @@ public class ChessController {
         public void notifyPV(int depth, int score, int time, long nodes, int nps, boolean isMate,
                               ArrayList<Move> pv) {
             pvDepth = depth;
-            pvScore = game.pos.whiteMove ? score : -score;;
+            pvScore = game.pos.whiteMove ? score : -score;
             currTime = time;
             currNodes = nodes;
             currNps = nps;
@@ -197,7 +197,7 @@ public class ChessController {
         String black = "Player";
         if (playWithComputer && humanIsWhite) {
             black = ComputerPlayer.engineName;
-        }else if (playWithComputer && !humanIsWhite) {
+        }else if (playWithComputer) {
             white = ComputerPlayer.engineName;
         }
         pgn.append(String.format(Locale.US, "[White \"%s\"]%n", white));
@@ -330,10 +330,8 @@ public class ChessController {
         if (this.humanIsWhite != humanIsWhite) {
             this.humanIsWhite = humanIsWhite;
             game.processString("swap");
-            startComputerThinking();
-        }else {
-            startComputerThinking();
         }
+        startComputerThinking();
     }
 
     public final boolean humansTurn() {
@@ -471,7 +469,6 @@ public class ChessController {
 
     public void startComputerThinking() {
         stopComputerThinking();
-        //thinkingPV = "";
         if (computerThread == null) {
             Runnable run = () -> {
                 try {
@@ -488,10 +485,8 @@ public class ChessController {
                             game.processString(cmd);
                             gui.onMove();
                         }
-                        //thinkingPV = "";
                         updateGUI();
                         setSelection();
-                        //stopComputerThinking();
                 });
                     Thread.sleep(10);
                 } catch (Exception e) {
