@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Horsy Analysis</string>
+    <string name="menu">Настройки</string>
+    <string name="flip">Перевернуть Доску</string>
+    <string name="previous">Предыдущий</string>
+    <string name="next">Следующий</string>
+    <string name="clipboard_dialog">Буфер Обмена</string>
+    <string name="copy_game">Скопировать Игру</string>
+    <string name="copy_position">Скопировать Позицию</string>
+    <string name="paste">Вставить</string>
+    <string name="new_game">Новая Игра</string>
+    <string name="show_thinking">Показать Мысли Компьютера</string>
+    <string name="play_with_computer">Продолжить с Компьютером</string>
+    <string name="share_game">Поделиться Игрой</string>
+    <string name="sounds">Включить Звук</string>
+    <string name="result">Белые / Ничья / Черные</string>
+    <string name="games">Игры</string>
+    <string name="move">Ход</string>
+
+    <string name="game_state_WHITE_MATE">Игра окончена, белые ставят мат!</string>
+    <string name="game_state_BLACK_MATE">Игра окончена, черные ставят мат!</string>
+    <string name="game_state_BLACK_STALEMATE">Ничья из-за пата!</string>
+    <string name="game_state_DRAW_REP">Ничья из-за повторения ходов!</string>
+    <string name="game_state_DRAW_50">Ничья из-за правила 50 ходов!</string>
+    <string name="game_state_DRAW_NO_MATE">Ничья, невозможно поставить мат!</string>
+    <string name="game_state_DRAW_AGREE">Ничья по соглашению!</string>
+    <string name="game_state_RESIGN_WHITE">Игра окончена, белые сдались!</string>
+    <string name="game_state_RESIGN_BLACK">Игра окончена, черные сдались!</string>
+    <string name="game_state_WHITE">Ход белых</string>
+    <string name="game_state_BLACK">Ход черных</string>
+</resources>

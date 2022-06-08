@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="30sp"
+    android:background="@drawable/small_corners_gray">
+
+    <TextView
+        android:id="@+id/textView"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingVertical="13sp"
+        android:textAlignment="textStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="20sp"
+        android:text="@string/clipboard_dialog" />
+
+    <TextView
+        android:id="@+id/button_copy_game"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingVertical="13sp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="17sp"
+        android:text="@string/copy_game" />
+
+    <TextView
+        android:id="@+id/button_copy_pos"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingVertical="13sp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="17sp"
+        android:text="@string/copy_position" />
+
+    <TextView
+        android:id="@+id/button_paste"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingVertical="13sp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="17sp"
+        android:text="@string/paste" />
+</LinearLayout>

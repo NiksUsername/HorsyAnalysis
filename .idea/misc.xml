@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/coners_rounded.xml" value="0.1815" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1815" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/progress_bar_drawable.xml" value="0.25" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/radio_button_moves.xml" value="0.1815" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/ripple_background.xml" value="0.1815" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/ripple_white.xml" value="0.1815" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/small_corners_black.xml" value="0.1815" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/small_corners_gray.xml" value="0.25" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/small_corners_white.xml" value="0.25" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/switch_thumb.xml" value="0.25" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/drawable/switch_track.xml" value="0.25" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/font/text_pieces.xml" value="0.20729166666666668" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/layout/book_move.xml" value="0.25" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/layout/clipboard_dialog.xml" value="0.75" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/layout/fragment_book_moves.xml" value="0.5116629044394282" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/layout/fragment_move_list.xml" value="0.29030797101449274" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/layout/menu_dialog.xml" value="0.33" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/layout/promotion_dialog.xml" value="0.33" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/menu/bottom_btns.xml" value="0.3541666666666667" />
+        <entry key="..\:/android/HorsyAnalysis/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

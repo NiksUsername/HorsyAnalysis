@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="30sp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:layout_marginHorizontal="5sp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/move"
+            android:layout_width="0dp"
+            android:layout_height="20sp"
+            android:layout_marginHorizontal="4sp"
+            android:layout_weight="1"
+            android:fontFamily="@font/text_chess"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/moves_count"
+            android:layout_width="0dp"
+            android:layout_height="20sp"
+            android:layout_marginHorizontal="4sp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textAlignment="viewEnd" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_weight="1"
+        android:id="@+id/results"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_marginHorizontal="4sp"
+        android:progressDrawable="@drawable/progress_bar_drawable"
+        android:background="@color/black"
+        android:progress="10"
+        android:secondaryProgress="30"
+        android:layout_width="0dp"
+        android:layout_height="16sp"
+        android:layout_gravity="center" />
+</LinearLayout>

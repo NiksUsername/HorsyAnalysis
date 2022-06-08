@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_menu"
+        android:icon="@drawable/menu"
+        android:title="@string/menu"/>
+
+    <item
+        android:id="@+id/navigation_flip"
+        android:icon="@drawable/flip_board"
+        android:title="@string/flip"/>
+
+    <item
+        android:id="@+id/navigation_previous"
+        android:icon="@drawable/arrow_left"
+        android:title="@string/previous"/>
+
+    <item
+        android:id="@+id/navigation_next"
+        android:icon="@drawable/arrow_right"
+        android:title="@string/next"/>
+
+</menu>

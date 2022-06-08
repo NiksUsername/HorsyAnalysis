@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name" translatable="false">Horsy Analysis</string>
+    <string name="menu">Settings</string>
+    <string name="flip">Flip Board</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="clipboard_dialog">Clipboard</string>
+    <string name="copy_game">Copy Game</string>
+    <string name="copy_position">Copy Position</string>
+    <string name="paste">Paste</string>
+    <string name="new_game">New Game</string>
+    <string name="show_thinking">Show Thinking</string>
+    <string name="play_with_computer">Continue With Computer</string>
+    <string name="share_game">Share Game</string>
+    <string name="sounds">Turn On The Sound</string>
+    <string name="result">White / Draw / Black</string>
+    <string name="games">Games</string>
+    <string name="move">Move</string>
+
+    <string name="game_state_WHITE_MATE">Game over, white mates!</string>
+    <string name="game_state_BLACK_MATE">Game over, black mates!</string>
+    <string name="game_state_BLACK_STALEMATE">Game over, draw by stalemate!</string>
+    <string name="game_state_DRAW_REP">Game over, draw by repetition!</string>
+    <string name="game_state_DRAW_50">Game over, draw by 50 move rule!</string>
+    <string name="game_state_DRAW_NO_MATE">Game over, draw by impossibility of mate!</string>
+    <string name="game_state_DRAW_AGREE">Game over, draw by agreement!</string>
+    <string name="game_state_RESIGN_WHITE">Game over, white resigns!</string>
+    <string name="game_state_RESIGN_BLACK">Game over, black resigns!</string>
+    <string name="game_state_BLACK">Black\'s move</string>
+    <string name="game_state_WHITE">White\'s move</string>
+</resources>

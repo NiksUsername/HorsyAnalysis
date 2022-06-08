@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Horsy Analysis</string>
+    <string name="menu">Налаштування</string>
+    <string name="flip">Перевернути Дошку</string>
+    <string name="previous">Попередній</string>
+    <string name="next">Наступний</string>
+    <string name="clipboard_dialog">Буфер обміну</string>
+    <string name="copy_game">Копіювати гру</string>
+    <string name="copy_position">Копіювати позицію</string>
+    <string name="paste">Вставити</string>
+    <string name="new_game">Нова гра</string>
+    <string name="show_thinking">Показати Мислення Комп\'ютера</string>
+    <string name="play_with_computer">Продовжити з Комп\'ютером</string>
+    <string name="share_game">Поділіться грою</string>
+    <string name="sounds">Увімкнути Звук</string>
+    <string name="result">Білі / Нічия / Чорні</string>
+    <string name="games">Ігри</string>
+    <string name="move">Хід</string>
+
+    <string name="game_state_BLACK">Хід чорних</string>
+    <string name="game_state_WHITE">Хід білих</string>
+    <string name="game_state_WHITE_MATE">Гра закінчена, білі ставлять мат!</string>
+    <string name="game_state_BLACK_MATE">Гра закінчена, чорні ставлять мат!</string>
+    <string name="game_state_BLACK_STALEMATE">Нічия через пат!</string>
+    <string name="game_state_DRAW_REP">Нічия через повторення ходів!</string>
+    <string name="game_state_DRAW_50">Нічия через правило 50 ходів!</string>
+    <string name="game_state_DRAW_NO_MATE">Нічия через неможливість мату!</string>
+    <string name="game_state_DRAW_AGREE">Нічия за домовленістю!</string>
+    <string name="game_state_RESIGN_WHITE">Гра закінчена, білі здалися!</string>
+    <string name="game_state_RESIGN_BLACK">Гра закінчена, чорні здалися!</string>
+</resources>

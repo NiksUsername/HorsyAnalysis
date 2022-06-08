@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="25sp"
+    android:background="@drawable/small_corners_gray">
+
+    <TextView
+        android:id="@+id/new_game"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingEnd="15sp"
+        android:paddingVertical="13sp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="17sp"
+        android:text="@string/new_game" />
+
+    <Switch
+        android:id="@+id/show_thinking"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingEnd="15sp"
+        android:paddingVertical="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="17sp"
+        android:track="@drawable/switch_track"
+        android:text="@string/show_thinking" />
+
+    <Switch
+        android:id="@+id/play_with_computer"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingEnd="15sp"
+        android:paddingVertical="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="17sp"
+        android:track="@drawable/switch_track"
+        android:text="@string/play_with_computer" />
+
+    <TextView
+        android:id="@+id/share_game"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingEnd="15sp"
+        android:paddingVertical="13sp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="17sp"
+        android:text="@string/share_game" />
+
+    <Switch
+        android:id="@+id/sound_switch"
+        android:textColor="@color/white"
+        android:paddingStart="25sp"
+        android:paddingEnd="15sp"
+        android:paddingVertical="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="17sp"
+        android:track="@drawable/switch_track"
+        android:text="@string/sounds" />
+</LinearLayout>
