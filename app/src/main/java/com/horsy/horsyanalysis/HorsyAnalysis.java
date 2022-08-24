@@ -462,6 +462,35 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
+    @SuppressLint("SetTextI18n")
+    public void startBookMoveDialog(String move, int games, int white, int draw) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.book_move_dialog);
+        dialog.setCanceledOnTouchOutside(true);
+
+        TextView bookMove = dialog.findViewById(R.id.book_move);
+        bookMove.setText(move);
+        TextView moveNum = dialog.findViewById(R.id.move_number);
+        moveNum.setText(Integer.toString(games));
+        TextView whiteNum = dialog.findViewById(R.id.white_win_num);
+        whiteNum.setText(white + " - ");
+        TextView drawNum = dialog.findViewById(R.id.draw_num);
+        drawNum.setText(draw + " - ");
+        TextView blackNum = dialog.findViewById(R.id.black_win_num);
+        blackNum.setText(games-white-draw+ " - ");
+        TextView whiteChance = dialog.findViewById(R.id.white_win_chance);
+        whiteChance.setText(Math.round((float) white/games*100)+"%");
+        TextView drawChance = dialog.findViewById(R.id.draw_chance);
+        drawChance.setText(Math.round((float) draw/games*100)+"%");
+        TextView blackChance = dialog.findViewById(R.id.black_win_chance);
+        blackChance.setText(Math.round((float) (games-white-draw)/games*100)+"%");
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+
     @Override
     public void requestPromotePiece() {
         runOnUIThread(this::startPromotionDialog);

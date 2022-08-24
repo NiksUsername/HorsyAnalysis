@@ -50,6 +50,18 @@ public class BookMovesFragment extends Fragment {
                 }catch (IndexOutOfBoundsException ignored) {}
             }
         });
+        bookAdapter.setOnBookMoveLongClickListener(position -> {
+            HorsyAnalysis activity = (HorsyAnalysis) getActivity();
+            if (activity != null) {
+                String move = bookMoves.get(position).getMove();
+                int games = bookMoves.get(position).getCount();
+                int wins = bookMoves.get(position).getWins();
+                int draws = bookMoves.get(position).getDraws();
+                activity.startBookMoveDialog(move,games,wins,draws);
+                return true;
+            }
+            return false;
+        });
         recyclerViewMoves.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewMoves.setAdapter(bookAdapter);
 

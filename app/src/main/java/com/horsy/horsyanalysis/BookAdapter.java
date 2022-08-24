@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder>{
     private OnBookMoveClickListener onBookMoveClickListener;
+    private OnBookMoveLongClickListener onBookMoveLongClickListener;
 
     private final ArrayList<BookMove> bookMoves;
 
@@ -22,6 +23,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     public void setOnBookMoveClickListener(OnBookMoveClickListener onBookMoveClickListener) {
         this.onBookMoveClickListener = onBookMoveClickListener;
+    }
+
+    interface OnBookMoveLongClickListener {
+        boolean onBookMoveLongClick(int position);
+    }
+
+    public void setOnBookMoveLongClickListener(OnBookMoveLongClickListener onBookMoveLongClickListener) {
+        this.onBookMoveLongClickListener = onBookMoveLongClickListener;
     }
 
     public BookAdapter(ArrayList<BookMove> bookMoves) {
@@ -63,6 +72,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                     onBookMoveClickListener.onBookMoveClick(getAdapterPosition());
                 }
             });
+            itemView.setOnLongClickListener(v -> {
+                    if (onBookMoveLongClickListener != null) {
+                        return onBookMoveLongClickListener.onBookMoveLongClick(getAdapterPosition());
+                    }
+                    return false;
+                });
         }
     }
 }
