@@ -32,6 +32,8 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import androidx.appcompat.widget.SwitchCompat;
 
 import java.util.ArrayList;
@@ -63,6 +65,8 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
 
     MediaPlayer mediaPlayer;
 
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     private void readPrefs() {
         mShowThinking = settings.getBoolean("showThinking", true);
         thinking.setVisibility(mShowThinking ? View.VISIBLE : View.GONE);
@@ -87,6 +91,8 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
             readPrefs();
             if (!ctrl.computerThinking()) ctrl.stopComputerThinking();
         });
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         status = findViewById(R.id.status);
         thinking= findViewById(R.id.thinking);
@@ -197,9 +203,11 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container,bookMovesFragment).commit();
                     String[] fen = ctrl.getFEN().split(" ");
                     bookMovesFragment.setBookMoves(fen[0]+" "+fen[1]+" "+fen[2]);
+                    logUserEvent("bookMovesFragment");
                     break;
                 case R.id.radioButtonMoves:
                     getSupportFragmentManager().beginTransaction().replace(R.id.container,moveListFragment).commit();
+                    logUserEvent("moveListFragment");
             }
         }
     };
@@ -390,18 +398,25 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clip = ClipData.newPlainText("", ctrl.getPGN());
             clipboard.setPrimaryClip(clip);
+
+            logUserEvent("copyPGN");
+
             dialog.cancel();
         });
         copyPosition.setOnClickListener(View ->{
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clip = ClipData.newPlainText("", ctrl.getFEN());
             clipboard.setPrimaryClip(clip);
+
+            logUserEvent("copyFEN");
+
             dialog.cancel();
         });
         paste.setOnClickListener(View ->{
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             try {
                 ctrl.setFENOrPGN(clipboard.getPrimaryClip().getItemAt(0).getText().toString());
+                logUserEvent("pasteBoard");
             } catch (ChessParseError | NullPointerException ignore ) {}
             finally {
                 dialog.cancel();
@@ -434,6 +449,7 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
             int visibility = checked ? View.VISIBLE : View.GONE;
             thinking.setVisibility(visibility);
             score.setVisibility(visibility);
+            logUserEvent("changeVisibility");
         });
 
         playWithComputer.setOnCheckedChangeListener((CompoundButton btn, boolean checked) -> {
@@ -442,6 +458,7 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
             mTimeLimit = checked ? 500 : 500000;
             playerWhite = !chessboard.isFlipped();
             ctrl.setHumanWhite(playerWhite);
+            logUserEvent("changePlayWithComputer");
         });
 
         soundSwitch.setOnCheckedChangeListener((CompoundButton btn, boolean checked) -> isSoundOn = checked);
@@ -449,6 +466,7 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
         newGame.setOnClickListener(View -> {
             ctrl.newGame(playerWhite, ttLogSize, false, this.playWithComputer);
             ctrl.startGame();
+            logUserEvent("startNewGame");
             dialog.cancel();
         });
 
@@ -457,6 +475,7 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, ctrl.getPGN());
             startActivity(Intent.createChooser(intent,"Share using..."));
+            logUserEvent("sharedTheGame");
             dialog.cancel();
         });
 
@@ -470,6 +489,8 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
 
     @SuppressLint("SetTextI18n")
     public void startBookMoveDialog(String move, int games, int white, int draw) {
+        logUserEvent("startBookMoveDialog");
+
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.book_move_dialog);
         dialog.setCanceledOnTouchOutside(true);
@@ -486,6 +507,7 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
         blackNum.setText(games-white-draw+ " - ");
         TextView whiteChance = dialog.findViewById(R.id.white_win_chance);
         whiteChance.setText(Math.round((float) white/games*100)+"%");
+
         TextView drawChance = dialog.findViewById(R.id.draw_chance);
         drawChance.setText(Math.round((float) draw/games*100)+"%");
         TextView blackChance = dialog.findViewById(R.id.black_win_chance);
@@ -521,5 +543,17 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
     @Override
     public void runOnUIThread(Runnable runnable) {
         runOnUiThread(runnable);
+    }
+
+    private void logUserEvent(String event) {
+        Bundle bundle = new Bundle();
+
+        bundle.putString("mShowThinking", String.valueOf(mShowThinking));
+        bundle.putString("playWithComputer", String.valueOf(playWithComputer));
+        bundle.putString("playerWhite", String.valueOf(playerWhite));
+        bundle.putString("isSoundOn", String.valueOf(isSoundOn));
+        bundle.putString("positionFEN", ctrl.getFEN());
+        mFirebaseAnalytics.logEvent(event, bundle);
+
     }
 }
