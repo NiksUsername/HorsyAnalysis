@@ -17,22 +17,24 @@
         <TextView
             android:id="@+id/move"
             android:layout_width="0dp"
-            android:layout_height="20sp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="4sp"
             android:layout_weight="1"
             android:fontFamily="@font/text_chess"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/moves_count"
             android:layout_width="0dp"
-            android:layout_height="20sp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="4sp"
             android:layout_weight="1"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textAlignment="viewEnd" />
+            android:textAlignment="viewEnd"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
     <ProgressBar
@@ -45,6 +47,6 @@
         android:progress="10"
         android:secondaryProgress="30"
         android:layout_width="0dp"
-        android:layout_height="16sp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center" />
 </LinearLayout>

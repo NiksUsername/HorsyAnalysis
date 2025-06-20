@@ -5,6 +5,7 @@
     android:orientation="horizontal"
     android:layout_marginHorizontal="25sp"
     android:paddingVertical="20sp"
+    android:maxWidth="400dp"
     android:background="@drawable/small_corners_gray">
 
     <LinearLayout

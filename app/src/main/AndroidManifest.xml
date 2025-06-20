@@ -11,8 +11,7 @@
         android:theme="@style/Theme.HorsyAnalysis">
         <activity
             android:name=".HorsyAnalysis"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

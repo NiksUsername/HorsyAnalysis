@@ -14,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,9 +28,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import androidx.appcompat.widget.SwitchCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -416,12 +419,13 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
         dialog.setContentView(R.layout.menu_dialog);
         dialog.setCanceledOnTouchOutside(true);
 
-        Switch showThinking = dialog.findViewById(R.id.show_thinking);
+        SwitchCompat showThinking = dialog.findViewById(R.id.show_thinking);
         showThinking.setChecked(mShowThinking);
-        Switch playWithComputer = dialog.findViewById(R.id.play_with_computer);
+        SwitchCompat playWithComputer = dialog.findViewById(R.id.play_with_computer);
         playWithComputer.setChecked(this.playWithComputer);
-        Switch soundSwitch = dialog.findViewById(R.id.sound_switch);
+        SwitchCompat soundSwitch = dialog.findViewById(R.id.sound_switch);
         soundSwitch.setChecked(isSoundOn);
+
         TextView newGame = dialog.findViewById(R.id.new_game);
         TextView shareGame = dialog.findViewById(R.id.share_game);
 
@@ -451,15 +455,17 @@ public class HorsyAnalysis extends AppCompatActivity implements GUIInterface {
         shareGame.setOnClickListener(View -> {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra("Share game", ctrl.getPGN());
+            intent.putExtra(Intent.EXTRA_TEXT, ctrl.getPGN());
             startActivity(Intent.createChooser(intent,"Share using..."));
             dialog.cancel();
         });
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
 
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setGravity(Gravity.CENTER);
+
+        dialog.show();
     }
 
     @SuppressLint("SetTextI18n")
