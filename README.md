@@ -10,8 +10,6 @@ HorsyAnalysis is an Android chess application developed in Java, designed to hel
 
 ## Screenshots
 
-Here's a glimpse of HorsyAnalysis in action:
-
 |              Chess Game & Analysis               |           App Menu           |               Moves Database                |
 |:------------------------------------------------:|:----------------------------:|:-------------------------------------------:|
 | ![Chess Game with Analysis Bar](assets/game.png) | ![App Menu](assets/menu.png) | ![Moves Database Menu](assets/moves_db.png) |
